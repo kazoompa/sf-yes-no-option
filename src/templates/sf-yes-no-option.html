@@ -1,0 +1,26 @@
+<div class="form-group"
+     ng-controller="YesNoRadioController"
+     ng-class="{'has-error': form.disableErrorState !== true && hasError(),
+                'has-success': form.disableSuccessState !== true && hasSuccess(),
+                'has-feedback': form.feedback !== false }"
+     sf-field-model
+     schema-validate="form" >
+  <pre>{{form|json}}</pre>
+  <div class="row">
+    <div class="col-xs-6">
+      <span class="control-label" ng-show="showTitle()">{{form.title}}</span>
+    </div>
+    <div class="col-xs-6">
+      <label class="radio-inline">
+        <input type="radio" sf-field-model ng-model="$$value$$" name="inlineRadioOptions" id="inlineRadio1" value="yes"> Yes
+      </label>
+      <label class="radio-inline">
+        <input type="radio" sf-field-model ng-model="$$value$$" name="inlineRadioOptions" id="inlineRadio2" value="no"> No
+      </label>
+      <label ng-if="form.na" class="radio-inline">
+        <input type="radio" sf-field-model ng-model="$$value$$" name="inlineRadioOptions" id="inlineRadio3" value="na"> N/A
+      </label>
+    </div>
+  </div>
+  <span class="help-block" sf-message="form.description"></span>
+</div>
